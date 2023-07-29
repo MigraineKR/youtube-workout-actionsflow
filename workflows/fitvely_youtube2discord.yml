@@ -1,0 +1,18 @@
+name: Send a Discord message when new Youtube videos update
+on:
+  youtube:
+    channel_id:
+      - UC3hRpIQ4x5niJDwjajQSVPg
+jobs:
+  discord:
+    name: Send a message to discord
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME_FITVELY }}
+          DISCORD_AVATAR: ${{ secrets.DISCORD_AVATAR_FITVELY }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "`FITVELY 핏블리 - YouTube`'\n'**${{on.youtube.outputs.title}}**'\n'${{on.youtube.outputs.link}}"
