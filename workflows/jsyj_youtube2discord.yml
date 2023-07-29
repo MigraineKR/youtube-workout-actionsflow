@@ -15,4 +15,4 @@ jobs:
           DISCORD_AVATAR: ${{ secrets.DISCORD_AVATAR_JSYJ }}
         uses: Ilshidur/action-discord@master
         with:
-          args: "`자세요정 JSYJ - YouTube`'\n'**${{on.youtube.outputs.title}}**'\n'${{on.youtube.outputs.link}}"
+          args: "`JSYJ 자세요정 - YouTube`'\n'**${{on.youtube.outputs.title}}**'\n'${{on.youtube.outputs.link}}"
