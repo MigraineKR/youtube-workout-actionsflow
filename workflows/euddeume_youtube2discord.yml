@@ -1,0 +1,18 @@
+name: Send a Discord message when new Youtube videos update
+on:
+  youtube:
+    channel_id:
+      - UC4yq3FWEWqMvFNFBsV3gbKQ
+jobs:
+  discord:
+    name: Send a message to discord
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_USERNAME: ${{ secrets.DISCORD_USERNAME_EUDDEUME }}
+          DISCORD_AVATAR: ${{ secrets.DISCORD_AVATAR_EUDDEUME }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "`힙으뜸 - YouTube`'\n'**${{on.youtube.outputs.title}}**'\n'${{on.youtube.outputs.link}}"
